@@ -1,0 +1,9 @@
+La génération augmentée par la recherche
+
+La génération augmentée par la recherche (en anglais retrieval-augmented generation, RAG) associe un moteur de recherche et un modèle de langage. Au lieu de répondre de mémoire, le modèle reçoit, avec la question, les passages de documents les plus pertinents, et formule sa réponse à partir d'eux.
+
+La chaîne comporte quatre étapes. D'abord, l'ingestion : les documents (texte, Markdown, PDF, pages web) sont lus, leur texte est extrait puis découpé en passages de quelques centaines de mots. Le découpage suit les paragraphes et les phrases, et les passages se recouvrent légèrement pour ne pas couper une idée en deux. Ensuite, l'indexation : chaque passage entre dans un index plein texte, et parfois dans un index de vecteurs. Puis la récupération : pour une question, on retrouve les passages les mieux classés. Enfin, la génération : les passages sont joints à la question dans le contexte du modèle de langage, avec la consigne de répondre uniquement à partir d'eux et de citer les sources.
+
+La qualité d'une chaîne RAG dépend surtout de la récupération. Si les bons passages ne sont pas retrouvés, le meilleur modèle de langage ne peut pas répondre. Une question mal formulée, un découpage trop grossier ou un analyseur inadapté à la langue des documents dégradent les résultats. Pour évaluer une chaîne, on vérifie que les passages retrouvés contiennent bien la réponse, puis que la réponse générée est fidèle à ces passages.
+
+Citer les sources rend la réponse vérifiable : chaque affirmation renvoie au passage d'origine. Les documents peuvent provenir d'une recherche automatisée sur Internet, d'un dossier partagé ou d'une base documentaire interne ; les ajouter au fil de l'eau enrichit la base sans réentraîner le modèle. Sans modèle de langage, une réponse extractive reste possible : on présente simplement les phrases des passages qui répondent le mieux à la question.

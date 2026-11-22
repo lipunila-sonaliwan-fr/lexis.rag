@@ -16,9 +16,24 @@ procedure TEMPO()
   si valeur == 0
     BTNOK_CLIC(nul)
   sinon
-    formaccueil.lblTempo.valeur = droite(tempo,4) + gauche(tempo,1)
+    formaccueil.lblTempo.valeur = droite(tempo,9) + gauche(tempo,1)
   finsi
 finprocedure
+
+procedure IMGOK_CLIC(ev)
+  OUVRIR_EXTERNE("https://buymeacoffee.com/sonaliwan.fr")
+finprocedure
+
+procedure IMGOK_ENTREE(ev)
+  globale formaccueil
+  formaccueil.imgOK.fond = "#318CFF"
+finprocedure
+
+procedure IMGOK_SORTIE(ev)
+  globale formaccueil
+    formaccueil.imgOK.fond = "#ECECEC"
+finprocedure
+
 
 procedure BTNOK_CLIC(ev)
   && surclic de btnOK (formulaire « 1 »)

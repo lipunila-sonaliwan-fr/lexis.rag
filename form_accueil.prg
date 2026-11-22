@@ -15,13 +15,20 @@ fonction FORMACCUEIL_OUVRIR()
   f.lbl1 = f.cad1:ajouter(interface.etiquette("Créez aujourd'hui les solutions de demain !", "centre"))
   f.lbl1.largeurfixe = 389
   f.lbl1.couleur = "#003973"
-  f.mkd1 = f.fenetre:ajouter(interface.markdown("# RAG Lexis+\n\nTous droits réservés 2026 - Jean-Marc  QUÉRÉ\n\n⛶ https://sonaliwan.fr  ✉ metalab(at)sonaliwan.fr\n\nSIRET 13033319800013 - **L.P.C.S. - Lab'Oratoire - Projet magenta**"))
+  f.mkd1 = f.fenetre:ajouter(interface.markdown("# RAG Lexis+ 1.0.2\n\nTous droits réservés 2026 - Jean-Marc  QUÉRÉ\n\n⛶ https://sonaliwan.fr  ✉ metalab(at)sonaliwan.fr\n\nSIRET 13033319800013 - **L.P.C.S. - Lab'Oratoire - Projet magenta**"))
   f.mkd1.hauteurfixe = 151
   f.cnt1 = f.fenetre:ajouter(interface.conteneur("horizontal", 4))
-  f.lblTempo = f.cnt1:ajouter(interface.etiquette("----9"))
-  f.lblTempo.poids = 3
+  f.imgOK = f.cnt1:ajouter(interface.image("ressources/buymeacoffe-fre.png"))
+  f.imgOK.largeurfixe = 201
+  f.imgOK.hauteurfixe = 40
+  f.lblTempo = f.cnt1:ajouter(interface.etiquette("€  ⬅  ⬅  5"))
+  f.lblTempo.largeurfixe = 100
+  f.lblTempo.poids = 1
   f.btnOK = f.cnt1:ajouter(interface.bouton("OK", {defaut = vrai}))
   && événements (procédures du code : principal.prg)
+  f.imgOK.surclic = @IMGOK_CLIC
+  f.imgOK.surentree = @IMGOK_ENTREE
+  f.imgOK.sursortie = @IMGOK_SORTIE
   f.btnOK.surclic = @BTNOK_CLIC
   formaccueil = f
 retourner f
@@ -80,7 +87,7 @@ finfonction
 &&§       "name": "mkd1",
 &&§       "props": {
 &&§         "hauteurfixe": "151",
-&&§         "texte": "# RAG Lexis+ 1.0.1\n\nTous droits réservés 2026 - Jean-Marc  QUÉRÉ\n\n⛶ https://sonaliwan.fr  ✉ metalab(at)sonaliwan.fr\n\nSIRET 13033319800013 - **L.P.C.S. - Lab'Oratoire - Projet magenta**"
+&&§         "texte": "# RAG Lexis+ 1.0.2\n\nTous droits réservés 2026 - Jean-Marc  QUÉRÉ\n\n⛶ https://sonaliwan.fr  ✉ metalab(at)sonaliwan.fr\n\nSIRET 13033319800013 - **L.P.C.S. - Lab'Oratoire - Projet magenta**"
 &&§       },
 &&§       "events": [],
 &&§       "children": []
@@ -95,12 +102,38 @@ finfonction
 &&§       "events": [],
 &&§       "children": [
 &&§         {
+&&§           "kind": "image",
+&&§           "name": "imgOK",
+&&§           "props": {
+&&§             "hauteurfixe": "40",
+&&§             "largeurfixe": "201",
+&&§             "chemin": "ressources/buymeacoffe-fre.png",
+&&§             "poids": "0"
+&&§           },
+&&§           "events": [
+&&§             [
+&&§               "surclic",
+&&§               "IMGOK_CLIC"
+&&§             ],
+&&§             [
+&&§               "surentree",
+&&§               "IMGOK_ENTREE"
+&&§             ],
+&&§             [
+&&§               "sursortie",
+&&§               "IMGOK_SORTIE"
+&&§             ]
+&&§           ],
+&&§           "children": []
+&&§         },
+&&§         {
 &&§           "kind": "etiquette",
 &&§           "name": "lblTempo",
 &&§           "props": {
-&&§             "poids": "3",
+&&§             "poids": "1",
 &&§             "alignement": "gauche",
-&&§             "libelle": "----5"
+&&§             "libelle": "€  ⬅  ⬅  5",
+&&§             "largeurfixe": "100"
 &&§           },
 &&§           "events": [],
 &&§           "children": []
@@ -110,7 +143,8 @@ finfonction
 &&§           "name": "btnOK",
 &&§           "props": {
 &&§             "libelle": "OK",
-&&§             "defaut": "true"
+&&§             "defaut": "true",
+&&§             "poids": "0"
 &&§           },
 &&§           "events": [
 &&§             [

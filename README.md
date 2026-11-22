@@ -84,4 +84,4 @@ CC BY-NC-SA 4.0 - jean-marc "jihem" quere 2026
 ### Encore une chose !
 Un p'tit geste qui peut - grandement - nous aider... \[La caféïne c'est important pour une équipe de neuro-atypiques : TSA, TDAH, TAG, HPI et/ou THPI (membres de **mensa.fr** et de **triplenine.org**).\]
 
-[![Buy Me a Coffee](buymeacoffe-fre.png)](https://buymeacoffee.com/sonaliwan.fr)
+[![Buy Me a Coffee](ressources/buymeacoffe-fre.png)](https://buymeacoffee.com/sonaliwan.fr)

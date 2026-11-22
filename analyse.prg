@@ -221,7 +221,7 @@ procedure ANALYSER(chemin)
     && document illisible (PDF scanné, chiffré…) : noté pour ne pas le relire
     DOCS[chemin] = {chemin = chemin, nom = nom, titre = nom, genre = "?", adresse = "", taille = inf.taille, ;
                     modifie = inf.modifie, passages = 0, mots = 0, langue = "", motscles = {}, ;
-                    ajoute = horodatage(), erreur = e}
+                    ajoute = entier(horodatage()), erreur = e}
     NOTER("Illisible : " + nom + " (" + e + ")")
     REMPLIR_DOCUMENTS()
     retourner
@@ -253,7 +253,7 @@ procedure ANALYSER(chemin)
   locale neuf = DOCS[chemin] = nul
   DOCS[chemin] = {chemin = chemin, nom = nom, titre = titre, genre = d.type, adresse = adresse, ;
                   taille = inf.taille, modifie = inf.modifie, passages = #morceaux, mots = d.mots, ;
-                  langue = d.langue, motscles = kw, ajoute = horodatage(), erreur = ""}
+                  langue = d.langue, motscles = kw, ajoute = entier(horodatage()), erreur = ""}
   NOTER(sisinon(neuf, "Analysé : ", "Réanalysé : ") + titre + " (" + d.type + ", " + d.langue + ", " + ;
           #morceaux + " passages, " + arrondi((systeme.horloge() - t0) * 1000) + " ms) - " + joindre(kw, ", "))
   REMPLIR_DOCUMENTS()
@@ -316,7 +316,7 @@ procedure MONTRER_DOCUMENT(chemin, basculer)
     md = md + "- source : [" + d.adresse + "](" + d.adresse + ")" + NL
   finsi
   md = md + "- langue : " + d.langue + ", " + d.mots + " mots, " + d.passages + " passages" + NL
-  md = md + "- analysé le " + systeme.date("%d/%m/%Y à %H:%M", d.ajoute) + NL + NL
+  md = md + "- analysé le " + systeme.date("%d/%m/%Y à %H:%M", entier(d.ajoute)) + NL + NL
   si #d.motscles > 0
     md = md + "**Mots-clés :** "
     locale liens = {}

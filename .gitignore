@@ -1,3 +1,5 @@
 .DS_Store
 .wdlexis/application.ini
 .wdlexis/atelier.json
+/distribution
+models/llama-3.2-1b-instruct-q4_k_m.gguf
